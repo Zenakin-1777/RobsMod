@@ -1,0 +1,16 @@
+[
+{
+  "modid": "com.github.zenakin-1777",
+  "name": "RobsMod",
+  "description": "Rob's first Minecraft mod.",
+  "version": "1.0",
+  "mcversion": "1.8.9-forge",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Zenakin", "094e"],
+  "credits": "ChatGPT",
+  "logoFile": "logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]

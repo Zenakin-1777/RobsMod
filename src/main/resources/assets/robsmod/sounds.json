@@ -1,0 +1,11 @@
+{
+  "notification_ping": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "robsmod:notification_ping",
+        "stream": false
+      }
+    ]
+  }
+}
