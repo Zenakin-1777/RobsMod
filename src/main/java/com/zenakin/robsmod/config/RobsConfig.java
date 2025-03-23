@@ -1,5 +1,7 @@
 package com.zenakin.robsmod.config;
 
+import cc.polyfrost.oneconfig.hud.Hud;
+import com.zenakin.robsmod.RobsMod;
 import cc.polyfrost.oneconfig.config.annotations.*;
 import cc.polyfrost.oneconfig.config.annotations.Number;
 import cc.polyfrost.oneconfig.config.core.OneColor;
@@ -10,81 +12,101 @@ import cc.polyfrost.oneconfig.config.Config;
 import cc.polyfrost.oneconfig.config.data.Mod;
 import cc.polyfrost.oneconfig.config.data.ModType;
 import cc.polyfrost.oneconfig.config.data.OptionSize;
+import com.zenakin.robsmod.hud.HudName___;
 
 /**
  * The main Config entrypoint that extends the Config type and inits the config options.
  * See <a href="https://docs.polyfrost.cc/oneconfig/config/adding-options">this link</a> for more config Options
  */
 public class RobsConfig extends Config {
-    public static RobsConfig instance;
 
-    /** TEMP VARIABLES (to keep other code working) */
-    public static long cacheExpiry = 1000;
-    public static int scanInterval = 10;
-    public static String apiKey = "";
-    public static int precision = 3;
-
-    @Switch(
-            name = "Name...",
-            description = "Description..."
-    )
-    public static boolean variableName = true;
 
     @Number(
-            name = "Name...",
-            description = "Description...",
+            name = "Current Cata XP",
+            description = "The current catacombs xp of the player you are carrying.",
             size = OptionSize.DUAL,
-            min = 10, max = 5000,
-            step = 25
+            min = 0, max = 100000000,
+            category = "Config",
+            subcategory = "Cata XP"
     )
-    public static int variableName2 = 150;
+    public static int currentXP = 0;
 
-    @Checkbox(
-            name = "Name...",
-            description = "Description..."
+    @Number(
+            name = "Floor 2",
+            description = "Cost per run for a floor 2",
+            size = OptionSize.DUAL,
+            min = 0, max = 100000000,
+            category = "Config",
+            subcategory = "Floor cost per run: "
     )
-    public static boolean variableName3 = true;
+    public static int f2 = 10000;
 
-    @Slider(
-            name = "Name...",
-            description = "Description...",
-            min = 0, max = 10.1F,
-            step = 1
+    @Number(
+            name = "Floor 3",
+            description = "Cost per run for a floor 3",
+            size = OptionSize.DUAL,
+            min = 0, max = 100000000,
+            category = "Config",
+            subcategory = "Floor cost per run: "
     )
-    public static int variableName4 = 2;
+    public static int f3 = 50000;
 
-    @Color(
-            name = "Name...",
-            description = "Description..."
+    @Number(
+            name = "Floor 4",
+            description = "Cost per run for a floor 4",
+            size = OptionSize.DUAL,
+            min = 0, max = 100000000,
+            category = "Config",
+            subcategory = "Floor cost per run: "
     )
-    public static OneColor variableName5 = new OneColor(0, 255, 0);
+    public static int f4 = 350000;
 
-    @Text(
-            name = "Name...",
-            placeholder = "Placeholder...",
-            secure = true, multiline = false
+    @Number(
+            name = "Floor 5",
+            description = "Cost per run for a floor 5",
+            size = OptionSize.DUAL,
+            min = 0, max = 100000000,
+            category = "Config",
+            subcategory = "Floor cost per run: "
     )
-    public static String variableName6 = "";
+    public static int f5 = 1000000;
 
-    @Page(
-            name = "Name...",
-            location = PageLocation.BOTTOM,
-            description = "Description..."
+    @Number(
+            name = "Floor 6",
+            description = "Cost per run for a floor 6",
+            size = OptionSize.DUAL,
+            min = 0, max = 100000000,
+            category = "Config",
+            subcategory = "Floor cost per run: "
     )
-    public PageName___ variableName7 = new PageName___();
+    public static int f6 = 2000000;
 
-    @Dropdown(
-            name = "Name...", // Name of the Dropdown
-            options = {"Option 1", "Option 2", "Option 3", "Option 4"} // Options available.
+
+
+    @Button(
+            name = "Calculate",
+            description = "Calculate the total cost and amount of runs. ",
+            text = "Click",
+            subcategory = "Floor cost per run: ",
+            category = "Config",
+            size = OptionSize.DUAL
     )
-    public static int variableName8 = 1; // Default option (in this case "Option 2")
+    public static void finalCalculate() {
+        RobsMod.main();
+    }
+
+
+    @HUD(
+            name = "Display Results"
+    )
+    public HudName___ hud = new HudName___();
+
 
     public RobsConfig() {
         super(new Mod(RobsMod.NAME, ModType.UTIL_QOL), RobsMod.MODID + ".json");
 
         initialize();
 
-        RobsMod.instance.config = this;
     }
 }
 

@@ -3,6 +3,8 @@ package com.zenakin.robsmod.hud;
 /** FOR SINGLE LINE */
 // import cc.polyfrost.oneconfig.hud.SingleTextHud;
 import cc.polyfrost.oneconfig.hud.TextHud;
+import com.zenakin.robsmod.RobsMod;
+
 
 import java.util.List;
 
@@ -24,8 +26,11 @@ public class HudName___ extends TextHud {
 
     @Override
     protected void getLines(List<String> line, boolean example) {
-        line.add("Example Line");
-        line.add("Example Line");
-        line.add("Example Line");
+        line.add(RobsMod.f2result);
+        line.add(RobsMod.f3result);
+        line.add(RobsMod.f4result);
+        line.add(RobsMod.f5result);
+        line.add(RobsMod.f6result);
+        line.add(RobsMod.totalCostResult);
     }
 }
